@@ -1,0 +1,7 @@
+* Half-wave rectifier with filter capacitor, 5 V peak / 50 Hz
+V1 in 0 SIN(0 5 50)
+D1 in out dm
+C1 out 0 100u
+R1 out 0 10k
+.model dm D(IS=1e-14 N=1)
+.tran 100u 80m

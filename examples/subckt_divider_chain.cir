@@ -1,0 +1,13 @@
+* Hierarchy: a divider subcircuit instantiated twice (loaded), internal nodes get names like x1.mid
+.subckt rc in out
+R1 in mid 1k
+R2 mid out 1k
+.ends
+.subckt chain a b
+X1 a m rc
+X2 m b rc
+.ends
+V1 s 0 DC 4
+XT s t chain
+R9 t 0 4k
+.op

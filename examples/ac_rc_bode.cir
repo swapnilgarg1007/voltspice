@@ -1,0 +1,5 @@
+* RC low-pass Bode plot: corner at 1/(2*pi*R*C) = 1 kHz (-3 dB, -45 deg)
+V1 in 0 DC 0 AC 1
+R1 in out 1k
+C1 out 0 159.1549n
+.ac dec 40 10 1meg

@@ -1,0 +1,8 @@
+* CMOS inverter voltage transfer curve (square-law model, symmetric sizing)
+VDD vdd 0 DC 1.8
+VIN in 0 DC 0
+M1 out in 0 0 nm W=2u L=1u
+M2 out in vdd vdd pm W=4u L=1u
+.model nm NMOS(VTO=0.4 KP=100u LAMBDA=0.05)
+.model pm PMOS(VTO=-0.4 KP=50u LAMBDA=0.05)
+.dc VIN 0 1.8 0.01

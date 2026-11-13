@@ -1,0 +1,5 @@
+* Resistive divider: expect v(out) = 7.5 V
+V1 in 0 DC 10
+R1 in out 1k
+R2 out 0 3k
+.op

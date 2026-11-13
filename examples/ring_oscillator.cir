@@ -1,0 +1,15 @@
+* 3-stage CMOS ring oscillator built from a subcircuit, with a start-up current kick
+.subckt inv in out vdd
+M1 out in 0 0 nm W=2u L=1u
+M2 out in vdd vdd pm W=4u L=1u
+C1 out 0 50f
+.ends
+VDD vdd 0 DC 1.8
+X1 a b vdd inv
+X2 b c vdd inv
+X3 c a vdd inv
+IK a 0 PULSE(0 100u 0 100p 100p 3n 1)
+.model nm NMOS(VTO=0.4 KP=100u LAMBDA=0.05)
+.model pm PMOS(VTO=-0.4 KP=50u LAMBDA=0.05)
+.probe v(a) v(b) v(c)
+.tran 20p 30n

@@ -1,0 +1,7 @@
+* Series RLC resonance: Q = 3.16, peak ~10.1 dB near 4.9 kHz
+V1 in 0 DC 0 AC 1
+R1 in a 10
+L1 a out 1m
+C1 out 0 1u
+.ac dec 100 100 100k
+.probe v(out) v(a)

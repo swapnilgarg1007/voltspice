@@ -1,0 +1,6 @@
+* Underdamped series RLC step response (rings at ~5 kHz)
+V1 in 0 PULSE(0 1 0 0 0 1 2)
+R1 in a 10
+L1 a out 1m
+C1 out 0 1u
+.tran 1u 2m

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>voltspice</title>
+<style>
+  :root { --bg:#fff; --fg:#1a1a1a; --muted:#6b7280; --line:#d8dbe0; --panel:#f6f7f9; --accent:#2563eb; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14161a; --fg:#e8e8e8; --muted:#9aa3af; --line:#2c3038; --panel:#1b1e24; --accent:#6ea0ff; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.45 system-ui, sans-serif; background:var(--bg); color:var(--fg); }
+  header { padding:12px 18px; border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:baseline; }
+  header h1 { font-size:18px; margin:0; } header span { color:var(--muted); }
+  main { display:grid; grid-template-columns: minmax(280px, 380px) 1fr; gap:16px; padding:16px; }
+  @media (max-width: 800px) { main { grid-template-columns: 1fr; } }
+  textarea { width:100%; height:340px; font:13px/1.4 ui-monospace, Menlo, Consolas, monospace; background:var(--panel);
+             color:var(--fg); border:1px solid var(--line); border-radius:6px; padding:10px; resize:vertical; }
+  .row { display:flex; gap:8px; margin-bottom:8px; }
+  select, button { font:inherit; padding:6px 10px; border-radius:6px; border:1px solid var(--line); background:var(--panel); color:var(--fg); }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; cursor:pointer; }
+  #status { margin-top:8px; color:var(--muted); min-height:1.4em; } #status.err { color:#dc2626; }
+  #stats { color:var(--muted); font-size:12px; margin-top:2px; }
+  canvas { width:100%; border:1px solid var(--line); border-radius:6px; background:var(--bg); display:block; margin-bottom:8px; }
+  #plot { height:380px; } #plot2 { height:220px; display:none; }
+  #legend { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:4px; max-height:120px; overflow:auto; }
+  #legend label { display:flex; gap:5px; align-items:center; cursor:pointer; }
+  #legend i { width:12px; height:3px; display:inline-block; }
+  #readout { color:var(--muted); min-height:1.4em; font-variant-numeric: tabular-nums; }
+  table { border-collapse:collapse; } td, th { padding:4px 14px 4px 0; text-align:left; }
+  #opWrap { display:none; margin-top:8px; max-height:420px; overflow:auto; }
+</style>
+</head>
+<body>
+<header><h1>voltspice</h1><span>circuit simulator &middot; sparse MNA engine in C++</span></header>
+<main>
+  <section>
+    <div class="row">
+      <select id="examples"></select>
+      <button class="primary" id="run">Run</button>
+    </div>
+    <textarea id="netlist" spellcheck="false"></textarea>
+    <div id="status"></div>
+    <div id="stats"></div>
+  </section>
+  <section>
+    <canvas id="plot"></canvas>
+    <canvas id="plot2"></canvas>
+    <div id="readout"></div>
+    <div id="legend"></div>
+    <div id="opWrap"><table id="opTable"></table></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

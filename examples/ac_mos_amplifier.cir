@@ -1,0 +1,9 @@
+* NMOS common-source amplifier: gain = -gm*RD = -8 (18.06 dB, 180 deg), pole from the load cap
+VDD vdd 0 DC 3
+VG g 0 DC 1 AC 1
+RD vdd d 8k
+CL d 0 1p
+M1 d g 0 0 nm W=10u L=1u
+.model nm NMOS(VTO=0.5 KP=200u LAMBDA=0)
+.ac dec 40 1k 1g
+.probe v(d)
